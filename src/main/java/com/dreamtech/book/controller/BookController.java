@@ -29,11 +29,7 @@ public class BookController {
         return bookService.getBookInfo(week);
     }
 
-    @ApiOperation(value="获取所有预约信息", notes="获取预约信息")
-    @GetMapping("/all")
-    public List<bookInfo> getAllInfo(){
-        return bookService.getAllInfo();
-    }
+
 
     @ApiOperation(value="添加预约", notes="预约实验，把预约信息组成json对象传过来")
     @ApiImplicitParams({

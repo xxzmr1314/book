@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class lab_info {
+public class labInfo {
     @Id
     @GeneratedValue
     private Integer id;
@@ -14,7 +14,6 @@ public class lab_info {
     private String place;//实验室所在地
     private String stu_num; //可容纳学生量
     private String equip_num;//设备数量
-    private String left_number;//剩余数量
     private String equip_name;//设备名称
     private String rule;//规章制度
 }

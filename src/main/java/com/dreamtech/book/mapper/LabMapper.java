@@ -11,8 +11,8 @@ public interface LabMapper {
      * 获取实验室列表
      * @return
      */
-    @Select("SELECT name FROM lab_info")
-    List<String> getLabList();
+    @Select("SELECT id,name FROM lab_info")
+    List<labInfo> getLabList();
 
     /**
      * 获取某个实验室的试验总人数

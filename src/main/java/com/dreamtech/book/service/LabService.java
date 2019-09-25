@@ -15,7 +15,7 @@ public class LabService {
      * 获取实验室列表
      * @return
      */
-    public List<String> getLabList(){
+    public List<labInfo> getLabList(){
         return labMapper.getLabList();
     }
 

@@ -11,7 +11,7 @@ public interface LabMapper {
      * 获取实验室列表
      * @return
      */
-    @Select("SELECT id,name FROM lab_info")
+    @Select("SELECT * FROM lab_info")
     List<labInfo> getLabList();
 
     /**

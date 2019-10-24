@@ -39,7 +39,7 @@ public class ManagerController {
             @ApiImplicitParam(name = "status", value = "需要变更成的状态", required = true, dataType = "Integer")
     })
     @PostMapping("/book/{bid}/{status}")
-    public Result UpdateStatus(@PathVariable Integer bid,@PathVariable Integer status){
+    public Result UpdateStatus(@PathVariable String bid,@PathVariable Integer status){
         bookService.updateStattus(bid, status);
         return Result.successNoData();
     }
@@ -47,7 +47,7 @@ public class ManagerController {
     @ApiOperation(value="撤销预约", notes="根据预约id取消当前预约")
     @ApiImplicitParam(name = "bid", value = "预约信息的id", required = true, dataType = "Integer")
     @DeleteMapping("/book/{bid}")
-    public Result DeleteBook(@PathVariable Integer bid){
+    public Result DeleteBook(@PathVariable String bid){
         bookService.deleteBook(bid);
         return Result.successNoData();
     }
@@ -62,14 +62,14 @@ public class ManagerController {
 
     @ApiOperation(value="删除实验室", notes="根据传过来的实验室id删除实验室")
     @DeleteMapping("/lab/{lid}")
-    public Result DeleteLab(@PathVariable Integer lid){
+    public Result DeleteLab(@PathVariable String lid){
         labService.deleteLab(lid);
         return Result.successNoData();
     }
 
     @ApiOperation(value="获取实验室信息", notes="获取实验室的详细信息")
     @GetMapping("/lab/{lid}")
-    public labInfo GetLabInfo(@PathVariable Integer lid){
+    public labInfo GetLabInfo(@PathVariable String lid){
         return labService.getLabInfo(lid);
     }
 

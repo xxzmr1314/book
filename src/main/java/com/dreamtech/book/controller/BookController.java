@@ -23,10 +23,23 @@ public class BookController {
     private LabService labService;
 
     @ApiOperation(value="获取预约信息", notes="根据周数获取预约信息")
-    @ApiImplicitParam(name = "week", value = "周数", required = true, dataType = "String")
+    @ApiImplicitParam(name = "week", value = "周数", required = true, dataType = "int")
     @GetMapping("/common/{week}")
-    public List<bookInfo> getBookInfo(@PathVariable String week){
-        return bookService.getBookInfo(week);
+    public List<bookInfo> getBookInfo(@PathVariable int week){
+
+
+
+
+
+
+
+        List<bookInfo> bookInfos = bookService.getBookInfo(week);
+        /*for (bookInfo info:bookInfos
+             ) {
+            //剩余可预约学生数=实验室可预约学生总数-已经预约的实验室人数
+            info.setRemainNum(labService.getLabInfo(info.getLab_id()).getStu_num()-bookService.getBookLabNum(info.getId()));
+        }*/
+        return bookInfos;
     }
 
 
@@ -58,7 +71,7 @@ public class BookController {
     @ApiOperation(value="撤销预约", notes="根据预约id取消当前预约")
     @ApiImplicitParam(name = "bid", value = "预约信息的id", required = true, dataType = "Integer")
     @DeleteMapping("/{bid}")
-    public Result DeleteBook(@PathVariable Integer bid){
+    public Result DeleteBook(@PathVariable String bid){
         bookService.deleteBook(bid);
         return Result.successNoData();
     }

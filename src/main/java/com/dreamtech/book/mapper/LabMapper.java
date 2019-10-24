@@ -20,7 +20,7 @@ public interface LabMapper {
      * @return
      */
     @Select("SELECT stu_num FROM lab_info WHERE id = #{id} ")
-    String getStuNum(@Param("id")String id);
+    int getStuNum(@Param("id")String id);
 
     /**
      * 增加实验室
@@ -34,7 +34,7 @@ public interface LabMapper {
      * @param lid
      */
     @Delete("DELETE FROM lab_info WHERE id = #{lid}")
-    void deleteLab(@Param("lid")Integer lid);
+    void deleteLab(@Param("lid")String lid);
 
     /**
      * 获取实验室信息
@@ -42,7 +42,7 @@ public interface LabMapper {
      * @return
      */
     @Select("SELECT * FROM lab_info WHERE id = #{lid}")
-    labInfo getLabInfo(@Param("lid")Integer lid);
+    labInfo getLabInfo(@Param("lid")String lid);
 
     /**
      * 更新实验室信息

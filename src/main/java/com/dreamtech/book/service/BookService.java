@@ -18,7 +18,7 @@ public class BookService {
      * @param week
      * @return
      */
-    public List<bookInfo> getBookInfo(String week){
+    public List<bookInfo> getBookInfo(int week){
         return bookMapper.getBookInfo(week);
     }
 
@@ -43,7 +43,7 @@ public class BookService {
      * 撤销预约
      * @param id
      */
-    public void deleteBook(Integer id){
+    public void deleteBook(String id){
         bookMapper.deleteBook(id);
     }
 
@@ -60,8 +60,8 @@ public class BookService {
      * @param lab_id
      * @return
      */
-    public Integer getBookLabNum(String lab_id){
-        return Integer.valueOf(bookMapper.getBookLabNum(lab_id));
+    public int getBookLabNum(String id){
+        return bookMapper.getBookLabNum(id);
     }
 
     /**
@@ -77,7 +77,7 @@ public class BookService {
      * @param bid
      * @param status
      */
-    public void updateStattus(Integer bid,Integer status){
+    public void updateStattus(String bid,Integer status){
         bookMapper.updateStatus(bid,status);
     }
 }

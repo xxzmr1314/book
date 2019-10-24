@@ -14,14 +14,14 @@ public interface BookMapper {
      * @param week
      * @return
      */
-    @Select("SELECT id,status,equip_need,stu_num,time FROM book_info where week = #{week} AND STATUS != -1")
-    List<bookInfo> getBookInfo(@Param("week")String week);
+    @Select("SELECT * FROM book_info where week = #{week} AND STATUS != -1")
+    List<bookInfo> getBookInfo(@Param("week")int week);
 
     /**
      * 预约实验
      * @param bookInfo
      */
-    @Insert("INSERT INTO book_info (lab_id,class_info,course_name,equip_need,exp_type,office,remark,stu_num,teacher_id,time,week,book_time)values(#{lab_id},#{class_info}, #{course_name}, #{equip_need},#{exp_type}, #{office}, #{remark}, #{stu_num}, #{teacher_id},#{time}, #{week}, #{book_time})")
+    @Insert("INSERT INTO book_info (lab_id,class_info,course_name,equip_need,exp_type,office,remark,stu_num,teacher_id,time,week,book_time,remain_num)values(#{lab_id},#{class_info}, #{course_name}, #{equip_need},#{exp_type}, #{office}, #{remark}, #{stu_num}, #{teacher_id},#{time}, #{week}, #{book_time},(select stu_num from lab_info where id = #{lab_id})-#{stu_num})")
     void insertIntoBookInfo(bookInfo bookInfo);
 
     /**
@@ -45,22 +45,22 @@ public interface BookMapper {
      * @param id
      */
     @Delete("DELETE FROM book_info WHERE id = #{id} ")
-    void deleteBook(@Param("id")Integer id);
+    void deleteBook(@Param("id")String id);
 
     /**
      * 获取某个实验室已经预约的人数
-     * @param lab_id
+     * @param id
      * @return
      */
-    @Select("SELECT stu_num FROM  book_info WHERE lab_id =#{lab_id} ")
-    String getBookLabNum(@Param("lab_id")String lab_id);
+    @Select("SELECT sum(stu_num) FROM  book_info WHERE id =#{id} ")
+    Integer getBookLabNum(@Param("lab_id")String id);
 
 
     /**
      * 获取所有预约信息
      * @return
      */
-    @Select("SELECT id,teacher_id,name,book_time,status FROM book_info")
+    @Select("SELECT * FROM book_info")
     List<bookInfo> getAllInfo();
 
 
@@ -70,7 +70,7 @@ public interface BookMapper {
      * @param status
      */
     @Update("UPDATE book_info SET status = #{status} WHERE id = #{bid}")
-    void updateStatus(@Param("bid")Integer bid,@Param("status")Integer status);
+    void updateStatus(@Param("bid")String bid,@Param("status")Integer status);
 
 
 

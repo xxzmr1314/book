@@ -24,8 +24,8 @@ public class LabService {
      * @param id
      * @return
      */
-    public Integer getStuNum(String id){
-        return Integer.valueOf(labMapper.getStuNum(id));
+    public int getStuNum(String id){
+        return labMapper.getStuNum(id);
     }
 
     /**
@@ -40,7 +40,7 @@ public class LabService {
      * 删除实验室
      * @param lid
      */
-    public void deleteLab(Integer lid){
+    public void deleteLab(String lid){
         labMapper.deleteLab(lid);
     }
 
@@ -49,7 +49,7 @@ public class LabService {
      * @param lid
      * @return
      */
-    public labInfo getLabInfo(Integer lid){
+    public labInfo getLabInfo(String lid){
         return labMapper.getLabInfo(lid);
     }
 

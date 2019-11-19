@@ -60,7 +60,7 @@ public interface BookMapper {
      * 获取所有预约信息
      * @return
      */
-    @Select("SELECT * FROM book_info")
+    @Select("SELECT a.*,b.name FROM book_info as a,lab_info as b where b.id = a.lab_id ")
     List<bookInfo> getAllInfo();
 
 

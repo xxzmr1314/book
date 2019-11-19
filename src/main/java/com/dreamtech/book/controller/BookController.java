@@ -27,11 +27,6 @@ public class BookController {
     @GetMapping("/common/{week}")
     public List<bookInfo> getBookInfo(@PathVariable int week){
         List<bookInfo> bookInfos = bookService.getBookInfo(week);
-        /*for (bookInfo info:bookInfos
-             ) {
-            //剩余可预约学生数=实验室可预约学生总数-已经预约的实验室人数
-            info.setRemainNum(labService.getLabInfo(info.getLab_id()).getStu_num()-bookService.getBookLabNum(info.getId()));
-        }*/
         return bookInfos;
     }
 

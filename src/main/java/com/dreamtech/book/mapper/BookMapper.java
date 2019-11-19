@@ -14,7 +14,7 @@ public interface BookMapper {
      * @param week
      * @return
      */
-    @Select("SELECT * FROM book_info where week = #{week} AND STATUS != -1")
+    @Select("SELECT a.*,b.name FROM book_info as a,lab_info as b where a.week = #{week} AND a.STATUS = 1 AND b.id = a.lab_id")
     List<bookInfo> getBookInfo(@Param("week")int week);
 
     /**
@@ -29,7 +29,7 @@ public interface BookMapper {
      * @param tid
      * @return
      */
-    @Select("select * from book_info where teacher_id = #{teacher_id} ")
+    @Select("select a.*,b.name from book_info as a,lab_info as b where a.teacher_id = #{teacher_id} AND b.id = a.lab_id ")
     List<bookInfo> getMyBook(@Param("teacher_id")String tid);
 
     /**

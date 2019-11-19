@@ -26,13 +26,6 @@ public class BookController {
     @ApiImplicitParam(name = "week", value = "周数", required = true, dataType = "int")
     @GetMapping("/common/{week}")
     public List<bookInfo> getBookInfo(@PathVariable int week){
-
-
-
-
-
-
-
         List<bookInfo> bookInfos = bookService.getBookInfo(week);
         /*for (bookInfo info:bookInfos
              ) {
@@ -45,20 +38,10 @@ public class BookController {
 
 
     @ApiOperation(value="添加预约", notes="预约实验，把预约信息组成json对象传过来")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "lab_id", value = "实验室的id", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "stu_num", value = "当前时段实验室已经预约的人数", required = true, dataType = "String")
-    })
-    @PostMapping("/{lab_id}/{stu_num}")
-    public Result addBookInfo(@PathVariable String lab_id,@PathVariable String stu_num,@Valid @RequestBody bookInfo bookInfo){
-        Integer lab_stu_num=labService.getStuNum(lab_id);
-        if(Integer.valueOf(bookInfo.getStu_num())+Integer.valueOf(stu_num)>lab_stu_num){
-            return Result.error(0,"超过实验室可容纳人数啦");
-        }
-        else {
+    @PostMapping
+    public Result addBookInfo(@Valid @RequestBody bookInfo bookInfo){
             bookService.insertIntoBookInfo(bookInfo);
             return Result.successNoData();
-        }
     }
 
     @ApiOperation(value="获取我的预约信息", notes="根据教师id获取预约信息")

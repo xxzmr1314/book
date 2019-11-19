@@ -38,6 +38,5 @@ public class bookInfo {
     @JsonProperty(value = "book_time")
     private String book_time;//申请预约的时间
 
-    private int remainNum;//剩余实验学生数量
     private Integer status;//预约的状态  0预约中  1已通过  -1未通过
 }

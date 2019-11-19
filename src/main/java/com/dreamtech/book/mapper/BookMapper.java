@@ -52,7 +52,7 @@ public interface BookMapper {
      * @param id
      * @return
      */
-    @Select("SELECT sum(stu_num) FROM  book_info WHERE id =#{id} ")
+    @Select("SELECT sum(stu_num) FROM  book_info WHERE id =#{id} and status = 1 ")
     Integer getBookLabNum(@Param("lab_id")String id);
 
 

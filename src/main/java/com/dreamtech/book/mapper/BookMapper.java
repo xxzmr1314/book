@@ -21,7 +21,7 @@ public interface BookMapper {
      * 预约实验
      * @param bookInfo
      */
-    @Insert("INSERT INTO book_info (lab_id,class_info,course_name,equip_need,exp_type,office,remark,stu_num,teacher_id,time,week,book_time,remain_num)values(#{lab_id},#{class_info}, #{course_name}, #{equip_need},#{exp_type}, #{office}, #{remark}, #{stu_num}, #{teacher_id},#{time}, #{week}, #{book_time},(select stu_num from lab_info where id = #{lab_id})-#{stu_num})")
+    @Insert("INSERT INTO book_info (lab_id,class_info,course_name,equip_need,exp_type,office,remark,stu_num,teacher_id,time,week,book_time)values(#{lab_id},#{class_info}, #{course_name}, #{equip_need},#{exp_type}, #{office}, #{remark}, #{stu_num}, #{teacher_id},#{time}, #{week}, #{book_time})")
     void insertIntoBookInfo(bookInfo bookInfo);
 
     /**

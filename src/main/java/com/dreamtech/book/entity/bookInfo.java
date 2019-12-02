@@ -19,6 +19,9 @@ public class bookInfo {
     @Transient
     private String name;//预约的实验室名称
 
+    @Transient
+    private int remainStuNum;//申请预约时剩余预约人数
+
     @JsonProperty(value = "lab_id")
     private String lab_id;//实验室id
 

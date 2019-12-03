@@ -60,7 +60,7 @@ public interface BookMapper {
      * 获取所有预约信息
      * @return
      */
-    @Select("SELECT a.*,b.name,(SELECT b.stu_num-SUM(c.stu_num) from book_info as c where c.status=1 and c.lab_id = b.id)  as remainStuNum FROM book_info as a,lab_info as b where b.id = a.lab_id and a.status ")
+    @Select("SELECT a.*,b.name,(SELECT b.stu_num-SUM(c.stu_num) from book_info as c where c.status=1 and c.lab_id = b.id)  as remainStuNum FROM book_info as a,lab_info as b where b.id = a.lab_id ")
     List<bookInfo> getAllInfo();
 
 

@@ -60,7 +60,7 @@ public interface BookMapper {
      * 获取所有预约信息
      * @return
      */
-    @Select("SELECT a.*,b.name,(SELECT b.stu_num-COALESCE(SUM(c.stu_num),0) from book_info as c where c.status=1 and c.lab_id = b.id and c.book_time = a.book_time) as remainStuNum FROM book_info as a,lab_info as b where b.id = a.lab_id group by book_time ")
+    @Select("SELECT a.*,b.name,(SELECT b.stu_num-COALESCE(SUM(c.stu_num),0) from book_info as c  where c.status=1 and c.lab_id = b.id and c.book_time = a.book_time ) as remainStuNum FROM book_info as a,lab_info as b where b.id = a.lab_id ")
     List<bookInfo> getAllInfo();
 
 

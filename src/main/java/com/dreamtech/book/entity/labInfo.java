@@ -5,6 +5,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * 实验室信息
+ */
 @Data
 @Entity
 public class labInfo {

@@ -5,7 +5,6 @@ import com.dreamtech.book.entity.bookInfo;
 import com.dreamtech.book.service.BookService;
 import com.dreamtech.book.service.LabService;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

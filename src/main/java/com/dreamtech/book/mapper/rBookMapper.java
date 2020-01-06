@@ -11,10 +11,10 @@ import java.util.List;
 public interface rBookMapper {
 
     /**
-     * 预约实验
+     * 预约会议室
      * @param RbookInfo
      */
-    @Insert("INSERT INTO rbook_info (book_time,number,remark,room_id,status,teacher_id,time)values(#{book_time},#{number},#{remark},#{room_id},#{status},#{teacher_id},#{time})")
+    @Insert("INSERT INTO rbook_info (book_time,number,remark,room_id,teacher_id,time)values(#{book_time},#{number},#{remark},#{room_id},#{teacher_id},#{time})")
     void insertIntoRbookInfo(RbookInfo RbookInfo);
 
     /**

@@ -47,7 +47,7 @@ public interface rBookMapper {
      * 获取所有预约信息
      * @return
      */
-    @Select("select * from rbook_info")
+    @Select("select a.*,b.name as room_name from rbook_info as a,room_info as b where a.room_id = b.id")
     List<RbookInfo> getAllInfo();
 
 

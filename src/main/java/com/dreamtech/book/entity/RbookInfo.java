@@ -20,7 +20,7 @@ public class RbookInfo {
 
     @JsonProperty(value = "room_name")
     @Transient
-    private String name;//预约的会议室名称
+    private String room_name;//预约的会议室名称
 
     @JsonProperty(value = "room_id")
     private String room_id;//会议室id
